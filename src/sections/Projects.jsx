@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ArrowUpRight } from 'lucide-react';
-import Portfolio from "../assets/Images/Portfolio1.png"
+import Portfolio from "../assets/Images/portfolio1.png"
 import colorPicker from "../assets/Images/colorPicker.png"
 import mahakalFinance from "../assets/Images/mahakalFinance.png"
 import SearchEngine from "../assets/Images/SearchEngine.png"

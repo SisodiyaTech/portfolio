@@ -1,6 +1,5 @@
 import About from "./sections/About"
 import Contacts from "./sections/Contacts"
-import Contact from "./sections/Contacts"
 import Hero from "./sections/Hero"
 import Navbar from "./sections/Navbar"
 import Process from "./sections/Process"
