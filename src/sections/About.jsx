@@ -1,7 +1,9 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { Download, Eye, FileText } from "lucide-react";
 import myPhoto from "../assets/Images/MyIMG.png";
+import resumePdf from "../assets/Abhishek Sisodiya.pdf";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -47,32 +49,46 @@ const About = () => {
   }, []);
 
   return (
-    <section id="about" ref={sectionRef} className="py-32 px-8 bg-[#0a0a0a]">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-        <div ref={textRef} className="flex flex-col gap-8">
-          <h2 className="text-5xl md:text-7xl font-display font-bold tracking-tighter">
+    <section id="about" ref={sectionRef} className="py-24 sm:py-32 px-4 sm:px-8 bg-[#0a0a0a]">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+        <div ref={textRef} className="flex flex-col gap-6 sm:gap-8">
+          <h2 className="text-4xl sm:text-6xl md:text-7xl font-display font-normal tracking-tighter">
             ABOUT <br /> ME
           </h2>
-          <p className="text-xl md:text-2xl text-muted leading-relaxed font-light">
-            I&apos;m a full-stack developer with a passion for building high-end
-            digital experiences. With over 2 years of experience, I&apos;ve
-            helped startups and established brands transform their ideas into
-            reality.
+          <p className="text-lg sm:text-xl md:text-2xl text-neutral-300 leading-relaxed font-light">
+            I&apos;m a passionate Full Stack MERN Developer focused on building modern, scalable, and user-friendly web applications. I work with React.js, Node.js, Express.js, and MongoDB, and enjoy turning real-world problems into practical software solutions.
           </p>
-          <p className="text-lg text-muted/80 leading-relaxed">
-            I believe that great design is invisible. My goal is to create
-            interfaces that are not only beautiful but also highly functional
-            and intuitive. Every pixel and every line of code is crafted with
-            purpose.
+          <p className="text-base sm:text-lg text-neutral-400 leading-relaxed">
+            I have hands-on experience building projects with authentication, REST APIs, database management, responsive interfaces, and third-party API integrations. I&apos;m continuously improving my skills in backend development, system design, DSA, and modern web technologies.
           </p>
+
+          <div className="flex flex-wrap items-center gap-4 pt-2">
+            <a
+              href={resumePdf}
+              download="Abhishek_Sisodiya_Resume.pdf"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white text-black font-semibold text-xs sm:text-sm hover:scale-105 transition-transform shadow-lg shadow-white/10"
+            >
+              <Download size={16} />
+              <span>Download CV</span>
+            </a>
+            <a
+              href={resumePdf}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white/5 border border-white/10 text-white font-medium text-xs sm:text-sm hover:bg-white/10 transition-colors"
+            >
+              <Eye size={16} />
+              <span>View Resume</span>
+            </a>
+          </div>
         </div>
 
         <div ref={statsRef} className="grid grid-cols-1 gap-8">
           <div className="flex justify-center items-center">
             <img
               src={myPhoto}
-              alt="My Photo"
-              className="w-[80%] rounded-2xl grayscale hover:grayscale-0 transition-all duration-700 ease-out"
+              alt="Abhishek Sisodiya"
+              className="w-full max-w-sm sm:max-w-md rounded-2xl sm:rounded-3xl border border-white/10 grayscale-0 md:grayscale md:hover:grayscale-0 transition-all duration-700 ease-out shadow-2xl"
             />
           </div>
         </div>

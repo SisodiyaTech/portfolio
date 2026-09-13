@@ -28,16 +28,16 @@ const Process = () => {
   const stepsRef = useRef([]);
 
   useEffect(() => {
-    stepsRef.current.forEach((step, index) => {
+    stepsRef.current.forEach((step) => {
       if (!step) return;
       
       gsap.fromTo(
         step,
-        { x: index % 2 === 0 ? -50 : 50, opacity: 0 },
+        { y: 40, opacity: 0 },
         {
-          x: 0,
+          y: 0,
           opacity: 1,
-          duration: 1,
+          duration: 0.9,
           ease: 'power3.out',
           scrollTrigger: {
             trigger: step,
@@ -52,14 +52,14 @@ const Process = () => {
     <section 
       id="process"
       ref={sectionRef}
-      className="py-32 px-8 bg-[#0f0f0f]"
+      className="py-24 sm:py-32 px-4 sm:px-8 bg-[#0f0f0f]"
     >
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-24">
-          <h2 className="text-5xl md:text-7xl font-display font-bold tracking-tighter mb-6">
+        <div className="text-center mb-16 sm:mb-24">
+          <h2 className="text-4xl sm:text-6xl md:text-7xl font-display font-normal tracking-tighter mb-6">
             MY PROCESS
           </h2>
-          <p className="text-muted uppercase tracking-widest text-sm">
+          <p className="text-neutral-400 uppercase tracking-widest text-xs sm:text-sm font-medium">
             How I bring your vision to life
           </p>
         </div>
@@ -73,35 +73,49 @@ const Process = () => {
               <div 
                 key={index}
                 ref={el => stepsRef.current[index] = el}
-                className={`flex flex-col lg:flex-row items-center gap-8 lg:gap-20 ${
-                  index % 2 !== 0 ? 'lg:flex-row-reverse' : ''
-                } lg:mb-20 last:mb-0`}
+                className="flex flex-col lg:flex-row items-center gap-6 lg:gap-20 lg:mb-20 last:mb-0"
               >
-                <div className="flex-1 text-center lg:text-right">
-                  {index % 2 === 0 ? (
-                    <div className="lg:pr-12">
-                      <h3 className="text-3xl font-display font-bold mb-4 uppercase tracking-tight">{step.title}</h3>
-                      <p className="text-muted leading-relaxed max-w-md ml-auto">{step.description}</p>
+                {/* Desktop Left Side */}
+                <div className="hidden lg:block flex-1 text-right">
+                  {index % 2 === 0 && (
+                    <div className="pr-12">
+                      <h3 className="text-2xl sm:text-3xl font-display font-medium mb-4 uppercase tracking-tight text-white">
+                        {step.title}
+                      </h3>
+                      <p className="text-neutral-400 leading-relaxed max-w-md ml-auto text-sm sm:text-base">
+                        {step.description}
+                      </p>
                     </div>
-                  ) : null}
+                  )}
                 </div>
 
-                <div className="relative z-10 w-12 h-12 bg-white rounded-full flex items-center justify-center text-black font-display font-bold text-xl">
+                {/* Center Step Badge */}
+                <div className="relative z-10 w-12 h-12 bg-white rounded-full flex items-center justify-center text-black font-display font-bold text-xl shadow-lg shadow-white/10 shrink-0">
                   {index + 1}
                 </div>
 
-                <div className="flex-1 text-center lg:text-left">
-                  {index % 2 !== 0 ? (
-                    <div className="lg:pl-12">
-                      <h3 className="text-3xl font-display font-bold mb-4 uppercase tracking-tight">{step.title}</h3>
-                      <p className="text-muted leading-relaxed max-w-md mr-auto">{step.description}</p>
-                    </div>
-                  ) : (
-                    <div className="lg:hidden">
-                       <h3 className="text-3xl font-display font-bold mb-4 uppercase tracking-tight">{step.title}</h3>
-                      <p className="text-muted leading-relaxed max-w-md mx-auto">{step.description}</p>
+                {/* Desktop Right Side */}
+                <div className="hidden lg:block flex-1 text-left">
+                  {index % 2 !== 0 && (
+                    <div className="pl-12">
+                      <h3 className="text-2xl sm:text-3xl font-display font-medium mb-4 uppercase tracking-tight text-white">
+                        {step.title}
+                      </h3>
+                      <p className="text-neutral-400 leading-relaxed max-w-md mr-auto text-sm sm:text-base">
+                        {step.description}
+                      </p>
                     </div>
                   )}
+                </div>
+
+                {/* Mobile Content View (Clean single render without duplicates) */}
+                <div className="block lg:hidden text-center max-w-md mx-auto">
+                  <h3 className="text-2xl font-display font-medium mb-3 uppercase tracking-tight text-white">
+                    {step.title}
+                  </h3>
+                  <p className="text-neutral-400 leading-relaxed text-sm sm:text-base">
+                    {step.description}
+                  </p>
                 </div>
               </div>
             ))}

@@ -56,33 +56,33 @@ const Services = () => {
     <section 
       id="services"
       ref={sectionRef}
-      className="py-32 px-8 bg-[#0f0f0f]"
+      className="py-24 sm:py-32 px-4 sm:px-8 bg-[#0f0f0f]"
     >
       <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
-          <h2 className="text-5xl md:text-7xl font-display font-bold tracking-tighter">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 sm:mb-20 gap-6 sm:gap-8">
+          <h2 className="text-4xl sm:text-6xl md:text-7xl font-display font-normal tracking-tighter">
             MY <br /> SERVICES
           </h2>
-          <p className="max-w-xs text-muted text-sm uppercase tracking-widest leading-relaxed">
+          <p className="max-w-xs text-neutral-400 text-xs sm:text-sm uppercase tracking-widest leading-relaxed">
             Specialized in creating high-end digital solutions that drive results.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-white/10 border border-white/10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-white/10 border border-white/10">
           {services.map((service, index) => (
             <div 
               key={index}
               ref={el => cardsRef.current[index] = el}
-              className="bg-[#0a0a0a] p-12 flex flex-col gap-12 group hover:bg-white hover:text-black transition-colors duration-500 cursor-default"
+              className="bg-[#0a0a0a] p-8 sm:p-10 lg:p-12 flex flex-col gap-8 sm:gap-12 group hover:bg-white hover:text-black transition-colors duration-500 cursor-default"
             >
               <span className="text-4xl font-display font-light opacity-30 group-hover:opacity-100 transition-opacity">
                 {service.number}
               </span>
               <div className="flex flex-col gap-4">
-                <h3 className="text-2xl font-display font-bold uppercase tracking-tight">
+                <h3 className="text-2xl font-display font-medium uppercase tracking-tight">
                   {service.title}
                 </h3>
-                <p className="text-muted group-hover:text-black/70 transition-colors leading-relaxed">
+                <p className="text-neutral-400 group-hover:text-black/70 transition-colors leading-relaxed text-sm sm:text-base">
                   {service.description}
                 </p>
               </div>

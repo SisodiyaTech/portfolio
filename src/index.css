@@ -1,6 +1,47 @@
 @import "tailwindcss";
 
+@theme {
+  --font-display: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* Clean, non-bold refined headings */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 400 !important;
+}
+
+/* Hide scrollbar completely across all browsers (Firefox, IE, Edge, Chrome, Safari, Opera) */
+* {
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+}
+
+*::-webkit-scrollbar {
+  display: none !important;
+  width: 0px !important;
+  height: 0px !important;
+  background: transparent !important;
+}
+
+html,
 body {
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
   color: white;
   background-color: #0f0f0f;
+  overflow-x: hidden;
+  width: 100%;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none !important;
+  width: 0px !important;
+  height: 0px !important;
+  background: transparent !important;
+}
+
+/* Smooth text selection */
+::selection {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
 }
